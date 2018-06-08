@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../../services';
 
 @Component({
   selector: 'app-translations-container',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TranslationsContainerComponent implements OnInit {
 
-  constructor() { }
+  constructor(private dataService: DataService) { }
 
   ngOnInit() {
+    this.dataService.getValues().subscribe(r => {
+      console.log(r);
+    });
   }
 
 }

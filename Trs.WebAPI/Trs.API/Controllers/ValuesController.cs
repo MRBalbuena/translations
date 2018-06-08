@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Trs.API.Controllers
@@ -11,6 +12,7 @@ namespace Trs.API.Controllers
     {
         // GET api/values
         [HttpGet]
+        [EnableCors("AllowAllOrigins")]
         public IEnumerable<string> Get()
         {
             return new string[] { "value1", "value2" };
