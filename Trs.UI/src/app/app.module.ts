@@ -6,16 +6,20 @@ import { TranslationsListComponent } from 'src/app/translations/translations-lis
 import { TranslationsContainerComponent } from 'src/app/translations/translations-container/translations-container.component';
 import { HttpClientModule } from '@angular/common/http';
 import { DataService } from './services';
+import { TranslationsInputComponent } from './translations/translations-input/translations-input.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
     AppComponent,
     TranslationsListComponent,
-    TranslationsContainerComponent
+    TranslationsContainerComponent,
+    TranslationsInputComponent
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule.forRoot()
   ],
   providers: [
     DataService
