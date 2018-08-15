@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../services';
+import { TranslationsService } from '../../services/translations.service';
 
 @Component({
   selector: 'app-translations-container',
@@ -8,10 +9,10 @@ import { DataService } from '../../services';
 })
 export class TranslationsContainerComponent implements OnInit {
 
-  constructor(private dataService: DataService) { }
+  constructor(private translationService: TranslationsService) { }
 
   ngOnInit() {
-    this.dataService.getValues().subscribe(r => {
+    this.translationService.getTranslations().subscribe(r => {
       console.log(r);
     });
   }

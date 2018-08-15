@@ -8,13 +8,16 @@ import { HttpClientModule } from '@angular/common/http';
 import { DataService } from './services';
 import { TranslationsInputComponent } from './translations/translations-input/translations-input.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { TranslationsListitemComponent } from './translations/translations-list/translations-listitem/translations-listitem.component';
+import { TranslationsService } from './services/translations.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     TranslationsListComponent,
     TranslationsContainerComponent,
-    TranslationsInputComponent
+    TranslationsInputComponent,
+    TranslationsListitemComponent
   ],
   imports: [
     BrowserModule,
@@ -22,7 +25,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     NgbModule.forRoot()
   ],
   providers: [
-    DataService
+    DataService,
+    TranslationsService
   ],
   bootstrap: [AppComponent]
 })
