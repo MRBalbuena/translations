@@ -11,9 +11,11 @@ export class TranslationsContainerComponent implements OnInit {
 
   constructor(private translationService: TranslationsService) { }
 
+  translations: string[];
+  
   ngOnInit() {
     this.translationService.getTranslations().subscribe(r => {
-      console.log(r);
+      this.translations = r;
     });
   }
 

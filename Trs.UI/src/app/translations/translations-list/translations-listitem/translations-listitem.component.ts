@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-translations-listitem',
@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./translations-listitem.component.scss']
 })
 export class TranslationsListitemComponent implements OnInit {
+@Input() translation: string[];
 
   constructor() { }
 

@@ -2,7 +2,7 @@
   <p>
     translations-list works!
   </p>
-  <app-translations-listitem></app-translations-listitem>
-  <app-translations-listitem></app-translations-listitem>
-  <app-translations-listitem></app-translations-listitem>
+  <div *ngFor="let trn of translations">
+    <app-translations-listitem [translation]="trn"></app-translations-listitem>
+  </div> 
 </div>
