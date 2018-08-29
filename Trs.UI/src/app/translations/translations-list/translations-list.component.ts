@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ITranslation } from '../../shared/translations.models';
+import { TranslationsService } from '../../services/translations.service';
 
 @Component({
   selector: 'app-translations-list',
@@ -8,12 +9,12 @@ import { ITranslation } from '../../shared/translations.models';
 })
 export class TranslationsListComponent implements OnInit {
   @Input() translations: string[];
-  constructor() { }
+  constructor(private translationService: TranslationsService) { }
 
   ngOnInit() {
   }
 
   onSelected(item: ITranslation) {
-    console.log(item);
+    this.translationService.setSelectedTranslation(item);
   }
 }

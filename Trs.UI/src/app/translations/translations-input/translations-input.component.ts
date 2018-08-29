@@ -1,17 +1,19 @@
-import { Component, OnInit } from '@angular/core';
-import { faArrowsAltV, faCoffee } from '@fortawesome/free-solid-svg-icons';
+import { Component, Input, OnChanges, SimpleChanges, SimpleChange } from '@angular/core';
+import { faArrowsAltV } from '@fortawesome/free-solid-svg-icons';
+import { ITranslation } from '../../shared/translations.models';
 
 @Component({
   selector: 'app-translations-input',
   templateUrl: './translations-input.component.html',
   styleUrls: ['./translations-input.component.scss']
 })
-export class TranslationsInputComponent implements OnInit {
+export class TranslationsInputComponent implements OnChanges {
+  @Input() selectedTranslation: ITranslation;
   faArrowsAltV = faArrowsAltV;
-  faCoffee = faCoffee;
   constructor() { }
 
-  ngOnInit() {
+  ngOnChanges(changes: SimpleChanges) {
+
   }
 
 }
