@@ -10,6 +10,12 @@ import { TranslationsInputComponent } from './translations/translations-input/tr
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TranslationsListitemComponent } from './translations/translations-list/translations-listitem/translations-listitem.component';
 import { TranslationsService } from './services/translations.service';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faArrowsAltV } from '@fortawesome/free-solid-svg-icons';
+
+// Add an icon to the library for convenient access in other components
+library.add(faArrowsAltV);
 
 @NgModule({
   declarations: [
@@ -22,7 +28,8 @@ import { TranslationsService } from './services/translations.service';
   imports: [
     BrowserModule,
     HttpClientModule,
-    NgbModule.forRoot()
+    NgbModule.forRoot(),
+    FontAwesomeModule
   ],
   providers: [
     DataService,

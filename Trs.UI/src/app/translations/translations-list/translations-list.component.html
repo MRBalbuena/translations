@@ -1,8 +1,14 @@
-<div>
+<div class="panel panel-info">
   <p>
     translations-list works!
   </p>
-  <div *ngFor="let trn of translations">
-    <app-translations-listitem [translation]="trn"></app-translations-listitem>
-  </div> 
+  <table class="table table-hover">
+    <tbody>
+      <tr *ngFor="let trn of translations">
+        <td>
+          <app-translations-listitem [translation]="trn"></app-translations-listitem>        
+        </td>  
+      </tr>
+    </tbody>
+  </table>
 </div>

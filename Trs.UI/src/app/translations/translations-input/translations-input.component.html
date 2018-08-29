@@ -1,5 +1,18 @@
-<div class="row">
-<p>
-  translations-input works!
-</p>
-</div>
+<table class="table table-hover">
+    <tbody>
+      <td>
+        <div class="row">
+          <div class="col-md-11">
+            <span>Translate:</span>            
+          </div>
+          <div class="col-md-1">
+              <button type="button" class="btn btn-default" aria-label="Left Align" data-bind="visible: selectedText, click: setSameText">
+                  <fa-icon [icon]="faArrowsAltV"></fa-icon>
+              </button>
+          </div>       
+          <input id="spanish" type="text" class="form-control"/>
+          <button type="button" id="save" class="btn btn-default btn-block">Save</button>          
+        </div>
+      </td>
+    </tbody>
+  </table>
