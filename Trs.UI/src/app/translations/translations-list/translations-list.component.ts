@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { ITranslation } from '../../shared/translations.models';
 
 @Component({
   selector: 'app-translations-list',
@@ -12,4 +13,7 @@ export class TranslationsListComponent implements OnInit {
   ngOnInit() {
   }
 
+  onSelected(item: ITranslation) {
+    console.log(item);
+  }
 }

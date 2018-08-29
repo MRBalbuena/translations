@@ -6,7 +6,7 @@
     <tbody>
       <tr *ngFor="let trn of translations">
         <td>
-          <app-translations-listitem [translation]="trn"></app-translations-listitem>        
+          <app-translations-listitem [translation]="trn" (selected)="onSelected($event)"></app-translations-listitem>        
         </td>  
       </tr>
     </tbody>

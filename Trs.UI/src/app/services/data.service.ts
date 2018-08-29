@@ -3,6 +3,7 @@ import { trsConfig, trsEnv } from '../shared/index';
 import { HttpClient } from '@angular/common/http';
 import { TRANSLATIONS } from '../shared/constants';
 import { Observable, Subject } from '../../../node_modules/rxjs';
+import { ITranslation } from '../shared/translations.models';
 
 
 @Injectable()
@@ -16,7 +17,7 @@ export class DataService {
          return this.http.get(getValuesUrl);
     }
 
-    getTranslations(): Observable<string[]> {
+    getTranslations(): Observable<ITranslation[]> {
         // eturn translations; // this pass to be an observable
         return new Observable(trans => {
             setTimeout(() => {

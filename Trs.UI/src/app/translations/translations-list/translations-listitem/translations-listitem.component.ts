@@ -1,4 +1,5 @@
-import {Component, OnInit, Input} from '@angular/core';
+import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
+import { ITranslation } from '../../../shared/translations.models';
 
 @Component({
   selector: 'app-translations-listitem',
@@ -7,12 +8,13 @@ import {Component, OnInit, Input} from '@angular/core';
 })
 export class TranslationsListitemComponent implements OnInit {
   @Input()translation: string[];
+  @Output() selected = new EventEmitter<ITranslation>();
 
   constructor() {}
 
   ngOnInit() {}
 
-  selectTranslation() {
-    console.log('ok');
+  selectTranslation(translation: ITranslation) {
+    this.selected.emit(translation);
   }
 }
