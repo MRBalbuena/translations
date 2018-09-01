@@ -13,6 +13,7 @@ import { TranslationsService } from './services/translations.service';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faArrowsAltV } from '@fortawesome/free-solid-svg-icons';
+import { FormsModule } from '@angular/forms';
 
 // Add an icon to the library for convenient access in other components
 library.add(faArrowsAltV);
@@ -29,7 +30,8 @@ library.add(faArrowsAltV);
     BrowserModule,
     HttpClientModule,
     NgbModule.forRoot(),
-    FontAwesomeModule
+    FontAwesomeModule,
+    FormsModule
   ],
   providers: [
     DataService,
