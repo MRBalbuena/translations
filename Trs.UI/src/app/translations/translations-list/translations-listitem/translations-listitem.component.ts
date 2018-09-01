@@ -17,4 +17,5 @@ export class TranslationsListitemComponent implements OnInit {
   selectTranslation(translation: ITranslation) {
     this.selected.emit(translation);
   }
+
 }

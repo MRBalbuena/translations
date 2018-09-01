@@ -10,10 +10,19 @@ import { ITranslation } from '../../shared/translations.models';
 export class TranslationsInputComponent implements OnChanges {
   @Input() selectedTranslation: ITranslation;
   faArrowsAltV = faArrowsAltV;
+  transText = '';
   constructor() { }
 
   ngOnChanges(changes: SimpleChanges) {
 
   }
 
+  onKey(event: any) {
+    this.transText = event.target.value;
+
+  }
+
+  isDisabled() {
+    return this.selectedTranslation ? this.transText.length === 0 : true;
+  }
 }
