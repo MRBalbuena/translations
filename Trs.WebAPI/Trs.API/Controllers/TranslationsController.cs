@@ -13,7 +13,7 @@ namespace Trs.API.Controllers
         [HttpGet]
         [EnableCors("AllowAllOrigins")]
         public IActionResult GetTranslations(){
-
+            return null;
         }        
     }    
 }
