@@ -22,6 +22,6 @@ export class TranslationsInputComponent implements OnChanges {
   }
 
   setSameText() {
-    this.transText = this.selectedTranslation.translation;
+    this.transText = this.selectedTranslation.originalText;
   }
 }

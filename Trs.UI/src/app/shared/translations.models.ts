@@ -1,5 +1,16 @@
 export interface ITranslation {
     id: number;
     key: string;
-    translation: string;
+    originalText: string;
+    translatedText?: string;
+    blockedBy?: string;
+    blockedTime?: Date;
+    translatedBy?: string;
+    translatedTime?: Date;
+    checkedBy?: string;
+    checkedTime?: Date;
+    editedBy?: string;
+    editedTime?: Date;
+    comment?: string;
+    version?: string;
 }

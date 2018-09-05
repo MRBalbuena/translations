@@ -9,20 +9,23 @@ import { ITranslation } from '../shared/translations.models';
 @Injectable()
 export class DataService {
 
-    baseUrl = trsConfig.endPoint[trsEnv];
     constructor(private http: HttpClient) { }
+    baseUrl = trsConfig.endPoint[trsEnv];
+
 
     getValues() {
         const getValuesUrl = this.baseUrl + 'values';
          return this.http.get(getValuesUrl);
     }
 
-    getTranslations(): Observable<ITranslation[]> {
+    getTranslations(): Observable<any> {
         // eturn translations; // this pass to be an observable
-        return new Observable(trans => {
-            setTimeout(() => {
-                trans.next(TRANSLATIONS);
-            }, 1000);
-        });
+        // return new Observable(trans => {
+        //     setTimeout(() => {
+        //         trans.next(TRANSLATIONS);
+        //     }, 1000);
+        // });
+
+        return this.http.get('http://localhost:5000/api/translations/');
     }
 }
