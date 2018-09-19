@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
@@ -8,6 +9,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Trs.Core.Models;
 using Trs.Engine;
 
 namespace Trs.API
@@ -32,9 +34,16 @@ namespace Trs.API
                     })
             );
 
-            services.AddMvc();
+            var configBuilder = new ConfigurationBuilder()
+               .SetBasePath(Directory.GetCurrentDirectory())
+               .AddJsonFile("appsettings.json", optional: true);
+            var config = configBuilder.Build();
+
+            services.AddMvc();            
+            services.AddSingleton(config);
+            // services.AddSingleton<ITranslationsContext, TranslationsContext>();
             services.AddScoped<ITranslationService, TranslationService>();
-            
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -44,7 +53,7 @@ namespace Trs.API
             {
                 app.UseDeveloperExceptionPage();
             }
-            
+
             app.UseMvc();
         }
     }

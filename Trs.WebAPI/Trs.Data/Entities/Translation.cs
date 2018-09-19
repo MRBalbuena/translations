@@ -1,6 +1,6 @@
 using System;
 
-namespace Trs.Data.Models
+namespace Trs.Data.Entities
 {
     public class Translation
     {
@@ -17,6 +17,9 @@ namespace Trs.Data.Models
         public string EditedBy { get; set; }
         public DateTime? EditedTime { get; set; }        
         public string Comment { get; set; }
-        public string Version { get; set; }
+        public long TrnVersionId { get; set; }
+
+        public TrnVersion TrnVersion { get; set; }
+
     }
 }

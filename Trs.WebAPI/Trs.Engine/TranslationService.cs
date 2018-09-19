@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using Trs.Data.Models;
+using Trs.Data.Entities;
 
 namespace Trs.Engine
 {
@@ -22,7 +22,7 @@ namespace Trs.Engine
                     EditedBy = "",
                     EditedTime = null,
                     Comment = "",
-                    Version = ""
+                    TrnVersionId = 1
                 },
                 new Translation{
                     Id = 2,
@@ -38,7 +38,7 @@ namespace Trs.Engine
                     EditedBy = "",
                     EditedTime = null,
                     Comment = "",
-                    Version = ""
+                    TrnVersionId = 1
                 },
                 new Translation{
                     Id = 3,
@@ -54,7 +54,7 @@ namespace Trs.Engine
                     EditedBy = "",
                     EditedTime = null,
                     Comment = "",
-                    Version = ""
+                    TrnVersionId = 1
                 },
                 new Translation{
                     Id = 4,
@@ -70,7 +70,7 @@ namespace Trs.Engine
                     EditedBy = "",
                     EditedTime = null,
                     Comment = "",
-                    Version = ""
+                    TrnVersionId = 1
                 }                
             };
         }

@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using Trs.Data.Models;
+using Trs.Data.Entities;
 
 namespace Trs.Engine
 {
