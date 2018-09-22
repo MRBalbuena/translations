@@ -17,7 +17,7 @@ namespace Trs.Data
         {}
 
         public DbSet<Translation> Translations{ get; set; }
-        public DbSet<Version> Version{ get; set; }
+        public DbSet<TrnVersion> Version{ get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder){
             var config = new ConfigurationBuilder();
@@ -48,7 +48,7 @@ namespace Trs.Data
             modelBuilder.Entity<TrnVersion>()
                 .HasMany<Translation>(t => t.Translations)
                 .WithOne(v => v.TrnVersion)
-                .HasForeignKey(t => t.TrnVersionId);
+                .HasForeignKey(t => t.VersionId);
         }
     }
 }

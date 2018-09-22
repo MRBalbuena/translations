@@ -17,7 +17,7 @@ namespace Trs.Data.Entities
         public string EditedBy { get; set; }
         public DateTime? EditedTime { get; set; }        
         public string Comment { get; set; }
-        public long TrnVersionId { get; set; }
+        public long VersionId { get; set; }
 
         public TrnVersion TrnVersion { get; set; }
 

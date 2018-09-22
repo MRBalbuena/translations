@@ -2,8 +2,8 @@ using System;
 using System.Collections.Generic;
 
 namespace Trs.Data.Entities
-{
-    public class TrnVersion
+{    
+    public class TrnVersion    
     {
         public long Id { get; set; }
         public string Title { get; set; }
