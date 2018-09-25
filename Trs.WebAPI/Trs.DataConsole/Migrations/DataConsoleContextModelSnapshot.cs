@@ -69,9 +69,9 @@ namespace Trs.DataConsole.Migrations
 
                     b.Property<string>("Description");
 
-                    b.Property<DateTime>("EndedOn");
+                    b.Property<DateTime?>("EndedOn");
 
-                    b.Property<DateTime>("StartedOn");
+                    b.Property<DateTime?>("StartedOn");
 
                     b.Property<string>("Title")
                         .IsRequired()
@@ -79,7 +79,7 @@ namespace Trs.DataConsole.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Version`");
+                    b.ToTable("TrnVersion");
                 });
 
             modelBuilder.Entity("Trs.Data.Entities.Translation", b =>

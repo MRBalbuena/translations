@@ -14,7 +14,7 @@ namespace Trs.DataConsole
         {}
 
         public DbSet<Translation> Translations{ get; set; }
-        public DbSet<TrnVersion> Version{ get; set; }
+        public DbSet<TrnVersion> TrnVersion{ get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder){
 
@@ -31,15 +31,17 @@ namespace Trs.DataConsole
                 .IsRequired();
 
             modelBuilder.Entity<TrnVersion>()
-                .ToTable("Version`");
-            modelBuilder.Entity<TrnVersion>()
                 .Property("Title")
                 .HasMaxLength(200)
                 .IsRequired();          
             
             modelBuilder.Entity<TrnVersion>()
-                .Property("CreatedOn")
-                .IsRequired();
+                .Property("StartedOn")
+                .IsRequired(false);
+
+            modelBuilder.Entity<TrnVersion>()
+                .Property("EndedOn")
+                .IsRequired(false);                
 
             // Relationship Version - Translation one to many
             modelBuilder.Entity<TrnVersion>()

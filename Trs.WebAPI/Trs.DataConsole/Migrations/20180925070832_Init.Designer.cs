@@ -10,8 +10,8 @@ using Trs.DataConsole;
 namespace Trs.DataConsole.Migrations
 {
     [DbContext(typeof(DataConsoleContext))]
-    [Migration("20180922094625_Initial")]
-    partial class Initial
+    [Migration("20180925070832_Init")]
+    partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -71,9 +71,9 @@ namespace Trs.DataConsole.Migrations
 
                     b.Property<string>("Description");
 
-                    b.Property<DateTime>("EndedOn");
+                    b.Property<DateTime?>("EndedOn");
 
-                    b.Property<DateTime>("StartedOn");
+                    b.Property<DateTime?>("StartedOn");
 
                     b.Property<string>("Title")
                         .IsRequired()
@@ -81,7 +81,7 @@ namespace Trs.DataConsole.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Version`");
+                    b.ToTable("TrnVersion");
                 });
 
             modelBuilder.Entity("Trs.Data.Entities.Translation", b =>

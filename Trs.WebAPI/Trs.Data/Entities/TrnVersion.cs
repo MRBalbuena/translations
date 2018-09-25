@@ -9,8 +9,8 @@ namespace Trs.Data.Entities
         public string Title { get; set; }
         public DateTime CreatedOn { get; set; }
         public string Description { get; set; }
-        public DateTime StartedOn { get; set; }
-        public DateTime EndedOn { get; set; }
+        public DateTime? StartedOn { get; set; }
+        public DateTime? EndedOn { get; set; }
 
         public ICollection<Translation> Translations { get; set; }
     }

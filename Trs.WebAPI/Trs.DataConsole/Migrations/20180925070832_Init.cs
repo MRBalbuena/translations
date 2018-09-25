@@ -4,12 +4,12 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Trs.DataConsole.Migrations
 {
-    public partial class Initial : Migration
+    public partial class Init : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Version`",
+                name: "TrnVersion",
                 columns: table => new
                 {
                     Id = table.Column<long>(nullable: false)
@@ -17,12 +17,12 @@ namespace Trs.DataConsole.Migrations
                     Title = table.Column<string>(maxLength: 200, nullable: false),
                     CreatedOn = table.Column<DateTime>(nullable: false),
                     Description = table.Column<string>(nullable: true),
-                    StartedOn = table.Column<DateTime>(nullable: false),
-                    EndedOn = table.Column<DateTime>(nullable: false)
+                    StartedOn = table.Column<DateTime>(nullable: true),
+                    EndedOn = table.Column<DateTime>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Version`", x => x.Id);
+                    table.PrimaryKey("PK_TrnVersion", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -49,9 +49,9 @@ namespace Trs.DataConsole.Migrations
                 {
                     table.PrimaryKey("PK_Translations", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Translations_Version`_VersionId",
+                        name: "FK_Translations_TrnVersion_VersionId",
                         column: x => x.VersionId,
-                        principalTable: "Version`",
+                        principalTable: "TrnVersion",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -68,7 +68,7 @@ namespace Trs.DataConsole.Migrations
                 name: "Translations");
 
             migrationBuilder.DropTable(
-                name: "Version`");
+                name: "TrnVersion");
         }
     }
 }

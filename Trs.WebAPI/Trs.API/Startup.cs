@@ -42,6 +42,7 @@ namespace Trs.API
             services.AddMvc();            
             services.AddSingleton(config);
             // services.AddSingleton<ITranslationsContext, TranslationsContext>();
+            services.AddSingleton<ITranslationsContext, TranslationsContext>();
             services.AddScoped<ITranslationService, TranslationService>();
 
         }
