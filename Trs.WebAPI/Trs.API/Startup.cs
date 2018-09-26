@@ -11,6 +11,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Trs.Core.Models;
 using Trs.Engine;
+using Trs.Data;
 
 namespace Trs.API
 {

@@ -6,7 +6,7 @@ using Trs.Data.Entities;
 
 namespace Trs.Data
 {
-    public class TranslationsContext: DbContext
+    public class TranslationsContext: DbContext, ITranslationsContext
     {
 
         public TranslationsContext()
@@ -23,7 +23,7 @@ namespace Trs.Data
             var config = new ConfigurationBuilder();
             var path = Path.Combine(AppContext.BaseDirectory, "appsetings.json");
 
-            optionsBuilder.UseSqlServer("Server=(local);Database=Translations;Persist Security Info=True; User ID=trnsuser;Password=trn5pa55;MultipleActiveResultSets=True");
+            optionsBuilder.UseSqlServer("Server=(LocalDb)\\V11.0;Database=Translations;Persist Security Info=True; User ID=trnsuser;Password=trn5pa55;MultipleActiveResultSets=True");
         }
         
         protected override void OnModelCreating(ModelBuilder modelBuilder){
