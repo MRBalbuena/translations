@@ -11,10 +11,12 @@ export class TranslationsListComponent implements OnInit {
   @Input() translations: string[];
   constructor(private translationService: TranslationsService) { }
 
+  tdClass = '';
   ngOnInit() {
   }
 
   onSelected(item: ITranslation) {
+    this.tdClass = 'table-active';
     this.translationService.setSelectedTranslation(item);
   }
 }

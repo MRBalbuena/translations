@@ -11,10 +11,14 @@ export class TranslationsInputComponent implements OnChanges {
   @Input() selectedTranslation: ITranslation;
   faArrowsAltV = faArrowsAltV;
   transText = '';
+  translation: ITranslation;
   constructor() { }
 
   ngOnChanges(changes: SimpleChanges) {
-
+    if (changes.currentValue) {
+      this.translation = <any> changes.currentValue;
+      this.transText = this.translation.originalText;
+    }
   }
 
   isDisabled() {

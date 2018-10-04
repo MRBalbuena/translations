@@ -7,7 +7,7 @@ import { ITranslation } from '../../../shared/translations.models';
   styleUrls: ['./translations-listitem.component.scss']
 })
 export class TranslationsListitemComponent implements OnInit {
-  @Input()translation: string[];
+  @Input() translation: string[];
   @Output() selected = new EventEmitter<ITranslation>();
 
   constructor() {}
