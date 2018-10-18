@@ -1,6 +1,7 @@
-import { Component, Input, OnChanges, SimpleChanges, SimpleChange } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges, SimpleChange, Output } from '@angular/core';
 import { faArrowsAltV } from '@fortawesome/free-solid-svg-icons';
-import { ITranslation } from '../../shared/translations.models';
+import { EventEmitter } from '@angular/core';
+import { ITranslation } from 'src/app/shared/translations.models';
 
 @Component({
   selector: 'app-translations-input',
@@ -9,6 +10,8 @@ import { ITranslation } from '../../shared/translations.models';
 })
 export class TranslationsInputComponent implements OnChanges {
   @Input() selectedTranslation: ITranslation;
+  @Output() saveTranslation = new EventEmitter<ITranslation>();
+
   faArrowsAltV = faArrowsAltV;
   transText = '';
   translation: ITranslation;
@@ -27,5 +30,10 @@ export class TranslationsInputComponent implements OnChanges {
 
   setSameText() {
     this.transText = this.selectedTranslation.originalText;
+  }
+
+  setTranslation(text: string) {
+    this.selectedTranslation.translatedText = text;
+    this.saveTranslation.emit(this.selectedTranslation);
   }
 }

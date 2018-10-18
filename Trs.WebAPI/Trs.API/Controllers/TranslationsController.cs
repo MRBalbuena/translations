@@ -6,10 +6,12 @@ using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
 using Trs.Engine;
+using Trs.Data.Entities;
 
 namespace Trs.API.Controllers
-{
-    [Route("api/[controller]")]
+{    
+    [Route("api/[controller]")]    
+    [EnableCors("CorsPolicy")]
     public class TranslationsController: Controller
     {
         private readonly ITranslationService _translationService;
@@ -18,11 +20,25 @@ namespace Trs.API.Controllers
         {
             _translationService = translationService;
         }
-        [HttpGet]
-        [EnableCors("AllowAllOrigins")]
+        [HttpGet]        
         public IActionResult Get(){
             return Ok(_translationService.GetTranslations());
-        }        
+        }
+        
+        [HttpPost("save")]
+        public IActionResult Save([FromBody]Translation translation){
+            return Ok(_translationService.Update(translation));
+        }
+
+        [HttpPost("test")]        
+        public IActionResult Test([FromBody]Translation translation){
+            return Ok();
+        }
+
+        // [HttpGet("save")]
+        // public IActionResult Save(){
+        //     return Ok();
+        // }        
     }    
 }
 

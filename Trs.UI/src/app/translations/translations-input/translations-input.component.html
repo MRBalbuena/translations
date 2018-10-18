@@ -11,8 +11,8 @@
                   <fa-icon [icon]="faArrowsAltV"></fa-icon>
               </button>
           </div>       
-          <input id="spanish" type="text" class="form-control" [(ngModel)]="transText"/>
-          <button type="button" id="save" class="btn btn-primary btn-block" [disabled]="isDisabled()">Save</button>                    
+          <input id="translation" #translation type="text" class="form-control" [(ngModel)]="transText"/>
+          <button type="button" id="save" class="btn btn-primary btn-block" [disabled]="isDisabled()" (click)="setTranslation(translation.value)">Save</button>                    
         </div>
       </td>
     </tbody>

@@ -1,4 +1,4 @@
 <div class="container">  
-  <app-translations-input [selectedTranslation]="selectedTranslation"></app-translations-input>
+  <app-translations-input [selectedTranslation]="selectedTranslation" (saveTranslation)="onSaveTranslation($event)"></app-translations-input>
   <app-translations-list [translations]="translations"></app-translations-list>
 </div>

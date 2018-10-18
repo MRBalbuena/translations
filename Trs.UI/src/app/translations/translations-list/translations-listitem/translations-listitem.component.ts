@@ -9,7 +9,7 @@ import { ITranslation } from '../../../shared/translations.models';
 export class TranslationsListitemComponent implements OnInit {
   @Input() translation: string[];
   @Output() selected = new EventEmitter<ITranslation>();
-  
+
   tdClass = '';
 
   constructor() {}

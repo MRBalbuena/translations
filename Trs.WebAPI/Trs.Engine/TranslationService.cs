@@ -17,5 +17,11 @@ namespace Trs.Engine
         public List<Translation> GetTranslations(){
             return _dbContext.Translations.Take(10).ToList();
         }
+
+        public bool Update(Translation translation){
+            _dbContext.Translations.Update(translation);
+            _dbContext.SaveChanges();
+            return true;
+        }
     }
 }

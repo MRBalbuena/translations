@@ -1,6 +1,8 @@
 ﻿using System;
 using System.IO;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Storage;
+using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.Extensions.Configuration;
 using Trs.Data.Entities;
 
@@ -10,8 +12,7 @@ namespace Trs.Data
     {
 
         public TranslationsContext()
-        {
-            
+        {            
         }
         public TranslationsContext(DbContextOptions<TranslationsContext> options): base(options)
         {}
@@ -19,6 +20,7 @@ namespace Trs.Data
         public DbSet<Translation> Translations{ get; set; }
         public DbSet<TrnVersion> Version{ get; set; }
 
+        Database IModel.Database => throw new NotImplementedException();
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder){
             var config = new ConfigurationBuilder();
             var path = Path.Combine(AppContext.BaseDirectory, "appsetings.json");

@@ -25,4 +25,8 @@ export class TranslationsService {
     getSelectedTranslation(): Observable<ITranslation> {
         return this.selectedTranslationSubject.asObservable();
     }
+
+    saveTranslation(translation: ITranslation) {
+        return this.dataService.saveTranslation(translation);
+    }
 }

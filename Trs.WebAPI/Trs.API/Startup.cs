@@ -27,20 +27,34 @@ namespace Trs.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddCors(options =>
-                options.AddPolicy("AllowAllOrigins",
-                    builder =>
-                    {
-                        builder.AllowAnyOrigin();
-                    })
-            );
+            // services.AddCors(options =>
+            //     options.AddPolicy("AllowAllOrigins",
+            //         builder =>
+            //         {
+            //             // builder.WithOrigins("http://localhost:4200")
+            //             builder.AllowAnyOrigin()
+            //             .AllowAnyHeader()
+            //             .AllowAnyMethod();
+            //             //.AllowCredentials();
+            //         })
+            // );
+
+			services.AddCors(options =>
+			{
+				options.AddPolicy("CorsPolicy",
+									builder => builder.AllowAnyOrigin()
+									.AllowAnyMethod()
+									.AllowAnyHeader()
+									.AllowCredentials()
+							);
+			});
 
             var configBuilder = new ConfigurationBuilder()
                .SetBasePath(Directory.GetCurrentDirectory())
                .AddJsonFile("appsettings.json", optional: true);
             var config = configBuilder.Build();
 
-            services.AddMvc();            
+            services.AddMvc();
             services.AddSingleton(config);
             // services.AddSingleton<ITranslationsContext, TranslationsContext>();
             services.AddSingleton<ITranslationsContext, TranslationsContext>();
@@ -56,7 +70,16 @@ namespace Trs.API
                 app.UseDeveloperExceptionPage();
             }
 
+            // string[] origins = new string[] { "http://localhost:4200" }; 
+            // //app.UseCors(b => b.AllowAnyMethod().AllowAnyHeader().WithOrigins(origins));
+            // app.UseCors(builder =>
+            //     builder.WithOrigins(origins)
+            //            .AllowAnyHeader()
+            //     );
+
+            app.UseCors("CorsPolicy");      
             app.UseMvc();
+              
         }
     }
 }

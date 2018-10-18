@@ -25,6 +25,9 @@ export class TranslationsContainerComponent implements OnInit {
     });
   }
 
+  onSaveTranslation(translation: ITranslation) {
+    this.translationService.saveTranslation(translation).subscribe(r => console.log(r));
+  }
 
 
 }
