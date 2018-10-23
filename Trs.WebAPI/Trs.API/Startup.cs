@@ -9,9 +9,11 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Microsoft.EntityFrameworkCore;
 using Trs.Core.Models;
 using Trs.Engine;
 using Trs.Data;
+
 
 namespace Trs.API
 {
@@ -57,7 +59,9 @@ namespace Trs.API
             services.AddMvc();
             services.AddSingleton(config);
             // services.AddSingleton<ITranslationsContext, TranslationsContext>();
-            services.AddSingleton<ITranslationsContext, TranslationsContext>();
+            services.AddScoped<ITranslationsContext, TranslationsContext>();
+            // var connString = "Server=(LocalDb)\\V11.0;Database=Translations;Persist Security Info=True; User ID=trnsuser;Password=trn5pa55;MultipleActiveResultSets=True";
+            // services.AddDbContext<TranslationsContext>(options => options.UseSqlServer(connString), ServiceLifetime.Scoped);
             services.AddScoped<ITranslationService, TranslationService>();
 
         }
