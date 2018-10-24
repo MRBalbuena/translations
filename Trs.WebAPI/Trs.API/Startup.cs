@@ -60,8 +60,6 @@ namespace Trs.API
             services.AddSingleton(config);
             // services.AddSingleton<ITranslationsContext, TranslationsContext>();
             services.AddScoped<ITranslationsContext, TranslationsContext>();
-            // var connString = "Server=(LocalDb)\\V11.0;Database=Translations;Persist Security Info=True; User ID=trnsuser;Password=trn5pa55;MultipleActiveResultSets=True";
-            // services.AddDbContext<TranslationsContext>(options => options.UseSqlServer(connString), ServiceLifetime.Scoped);
             services.AddScoped<ITranslationService, TranslationService>();
 
         }
