@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../services';
 import { TranslationsService } from '../../services/translations.service';
-import { ITranslation } from '../../shared/translations.models';
+import { ITranslation, ITranslationUI } from '../../shared/translations.models';
 
 @Component({
   selector: 'app-translations-container',
@@ -12,7 +12,7 @@ export class TranslationsContainerComponent implements OnInit {
 
   constructor(private translationService: TranslationsService) { }
 
-  translations: ITranslation[];
+  translations: ITranslationUI[];
   selectedTranslation: ITranslation;
 
   ngOnInit() {

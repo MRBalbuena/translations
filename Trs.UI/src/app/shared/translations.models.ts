@@ -14,3 +14,14 @@ export interface ITranslation {
     comment?: string;
     version?: string;
 }
+
+export interface ITranslationUI extends ITranslation {
+    state: TranslationState;
+}
+
+export enum TranslationState {
+    empty,
+    selected,
+    translated,
+    checked
+}

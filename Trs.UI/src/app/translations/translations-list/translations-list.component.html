@@ -1,5 +1,5 @@
 <div class="panel panel-info">
-  <table class="table table-hover">
+  <table class="table table-hover table-sm">
     <tbody>
       <tr *ngFor="let trn of translations">
         <app-translations-listitem [translation]="trn" (selected)="onSelected($event)"></app-translations-listitem>
