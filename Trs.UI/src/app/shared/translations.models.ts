@@ -1,3 +1,5 @@
+import { TranslationState } from './enums';
+
 export interface ITranslation {
     id: number;
     key: string;
@@ -13,15 +15,5 @@ export interface ITranslation {
     editedTime?: Date;
     comment?: string;
     version?: string;
-}
-
-export interface ITranslationUI extends ITranslation {
-    state: TranslationState;
-}
-
-export enum TranslationState {
-    empty,
-    selected,
-    translated,
-    checked
+    status?: TranslationState;
 }
